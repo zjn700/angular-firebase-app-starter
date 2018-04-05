@@ -85,3 +85,45 @@ This should take a couple of minutes. If there are issues, please post the compl
 
 ## Running the code
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+=======================================
+
+## Firebase Database Link
+https://ng-fb-app-vasco.firebaseio.com/
+
+### Default Firebase Rules
+
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}
+
+### Firease Web Connector
+
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCOXzo05g0EF8ynmb6ZTcKeI4vVy9lRG10",
+    authDomain: "ng-fb-app-vasco.firebaseapp.com",
+    databaseURL: "https://ng-fb-app-vasco.firebaseio.com",
+    projectId: "ng-fb-app-vasco",
+    storageBucket: "ng-fb-app-vasco.appspot.com",
+    messagingSenderId: "987006913479"
+  };
+  firebase.initializeApp(config);
+</script>
+
+### Install firebase 
+  npm install firebase --save
+
+### Install firebase node module
+  npm ls firebase
+  
+
+### Install typescript node module to allow running a typescript script from command line w/o compiling
+  npm install ts-node
+  
+  
