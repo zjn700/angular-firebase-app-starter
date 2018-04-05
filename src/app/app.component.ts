@@ -13,72 +13,73 @@ import 'rxjs/add/operator/map'; //VASCO:  needed to add this to make map work --
 export class AppComponent {
 
   title = 'Angular Firebase Application: Vasco';
-  courses$: FirebaseListObservable<any>[];
-  lesson$ : FirebaseObjectObservable<any>;
-  thirdCourse: <any>;
   
-  constructor(private angularFireDatabase: AngularFireDatabase) {
-    
-    this.courses$ = angularFireDatabase.list('/courses');
-    
-    this.courses$.subscribe(console.log)
-    
-    this.lesson$ = angularFireDatabase.object("/lessons/-L8uq-SZipKloXuFYfIj");
-    
-    this.lesson$.subscribe(console.log)
-    
-    this.courses$.map(courses => courses[0])
-      .subscribe(
-        course => this.thirdCourse = course;
-        )
-    
-    // const courses$ : FirebaseListObservable<any>[] = angularFireDatabase.list('/courses'); //VASCO: needed brackets after <any> otherwise it would not update
-    // courses$.subscribe(
-    //   val => console.log(val);
-    // )
-    
-    // only one observable allowed -- wonder why?
-    
-    // const course$ = angularFireDatabase.object('/courses/-L8m9bYHQs-g7td3NQhV');
-    
-    // course$.subscribe(
-    //   val => console.log(val);
-    // )
-  }
+  // courses$: FirebaseListObservable<any>[];
+  // lesson$ : FirebaseObjectObservable<any>;
+  // thirdCourse: <any>;
   
-  listPush() {
-    console.log("List Push");
-    this.courses$.push({description: "New Course Test"})
-      .then(
-        () => console.log("Push course done");
-        console.error
-        )
-  }
-  
-  listUpdate() {
+  // constructor(private angularFireDatabase: AngularFireDatabase) {
     
-    this.courses$.update(this.thirdCourse, {description: "UPDATED PROGRAMATICALLY"})
+  //   this.courses$ = angularFireDatabase.list('/courses');
     
-  }
+  //   this.courses$.subscribe(console.log)
+    
+  //   this.lesson$ = angularFireDatabase.object("/lessons/-L8uq-SZipKloXuFYfIj");
+    
+  //   this.lesson$.subscribe(console.log)
+    
+  //   this.courses$.map(courses => courses[0])
+  //     .subscribe(
+  //       course => this.thirdCourse = course;
+  //       )
+    
+  //   // const courses$ : FirebaseListObservable<any>[] = angularFireDatabase.list('/courses'); //VASCO: needed brackets after <any> otherwise it would not update
+  //   // courses$.subscribe(
+  //   //   val => console.log(val);
+  //   // )
+    
+  //   // only one observable allowed -- wonder why?
+    
+  //   // const course$ = angularFireDatabase.object('/courses/-L8m9bYHQs-g7td3NQhV');
+    
+  //   // course$.subscribe(
+  //   //   val => console.log(val);
+  //   // )
+  // }
   
-  listRemove() {
-    this.courses$.remove(this.thirdCourse)
-  }
+  // listPush() {
+  //   console.log("List Push");
+  //   this.courses$.push({description: "New Course Test"})
+  //     .then(
+  //       () => console.log("Push course done");
+  //       console.error
+  //       )
+  // }
   
-  objUpdate() {
-    this.lesson$.update({description: "UPDATE NEW LESSON!!!"})
-      .then(val => console.log("val", val))
-  }
+  // listUpdate() {
+    
+  //   this.courses$.update(this.thirdCourse, {description: "UPDATED PROGRAMATICALLY"})
+    
+  // }
   
-  objSet() {
-    this.lesson$.set({description: "SET NEW LESSON!!!"})
-      .then(val => console.log("val", val))    
-  }
+  // listRemove() {
+  //   this.courses$.remove(this.thirdCourse)
+  // }
+  
+  // objUpdate() {
+  //   this.lesson$.update({description: "UPDATE NEW LESSON!!!"})
+  //     .then(val => console.log("val", val))
+  // }
+  
+  // objSet() {
+  //   this.lesson$.set({description: "SET NEW LESSON!!!"})
+  //     .then(val => console.log("val", val))    
+  // }
 
-  objRemove() {
-    this.lesson$.remove()
-      .then(val => console.log("val", val))    
-  }
+  // objRemove() {
+  //   this.lesson$.remove()
+  //     .then(val => console.log("val", val))    
+  // }
   
 }
 
